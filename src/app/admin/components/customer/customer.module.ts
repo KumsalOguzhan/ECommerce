@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CustomerComponent } from './customer.component';
 import { RouterModule } from '@angular/router';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 
 
@@ -13,7 +14,8 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     RouterModule.forChild([
       { path: "", component: CustomerComponent }
-    ])
+    ]),
+    NgxSpinnerModule
   ]
 })
 export class CustomerModule { }

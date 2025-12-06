@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ComponentsModule } from './components/components.module';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 
@@ -8,7 +9,8 @@ import { ComponentsModule } from './components/components.module';
   declarations: [],
   imports: [
     CommonModule,
-    ComponentsModule
+    ComponentsModule,
+    NgxSpinnerModule
   ]
 })
 export class UiModule { }
