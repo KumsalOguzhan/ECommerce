@@ -9,7 +9,3 @@ declare var $: any;
 export class AppComponent {
   title = 'ECommerce';
 }
-
-$(document).ready(function () {
-  alert("jQuery is working!");
-});
