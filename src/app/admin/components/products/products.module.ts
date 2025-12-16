@@ -6,6 +6,9 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { CreateComponent } from './create/create.component';
 import { ListComponent } from './list/list.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 
 
@@ -21,7 +24,10 @@ import { ListComponent } from './list/list.component';
       { path: "", component: ProductsComponent }
     ]),
     NgxSpinnerModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule
   ]
 })
 export class ProductsModule { }

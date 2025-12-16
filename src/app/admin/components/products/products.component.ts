@@ -14,26 +14,5 @@ export class ProductsComponent extends BaseComponent {
   }
 
   ngOnInit(): void {
-    this.showSpinner(SpinnerType.BallScaleMultiple);
-
-    this.httpClientService.get<any[]>('products').subscribe(data => {
-      console.log(data);
-      this.hideSpinner(SpinnerType.BallScaleMultiple);
-    });
-
-    this.httpClientService.get<any[]>('products', "0a87f38f-6aca-4513-86cd-fdef58266feb").subscribe(data => {
-      console.log(data);
-      this.hideSpinner(SpinnerType.BallScaleMultiple);
-    });
-
-    this.httpClientService.post<any, any>('products', { name: "Kalem", price: 200 }).subscribe(data => {
-      console.log(data);
-      this.hideSpinner(SpinnerType.BallScaleMultiple);
-    });
-
-    this.httpClientService.put<any, any>('products', { id: "0a87f38f-6aca-4513-86cd-fdef58266feb", name: "Kalem 2", price: 200 }, "0a87f38f-6aca-4513-86cd-fdef58266feb").subscribe(data => {
-      console.log(data);
-      this.hideSpinner(SpinnerType.BallScaleMultiple);
-    });
   }
 }
