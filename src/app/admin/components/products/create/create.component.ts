@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { BaseComponent, SpinnerType } from 'src/app/base/base.component';
-import { AlertifyService, MessagePosition } from 'src/app/services/admin/alertify.service';
+import { AlertifyService, MessagePosition, MessageType } from 'src/app/services/admin/alertify.service';
 import { ProductService } from 'src/app/services/common/models/product.service';
 
 @Component({
@@ -26,6 +26,9 @@ export class CreateComponent extends BaseComponent implements OnInit {
     this.productService.createProduct({ name, price, stock }, () => {
       this.hideSpinner(SpinnerType.BallScaleMultiple);
       this.alertify.message('Product created successfully.', { position: MessagePosition.TopRight });
+    }, (errorMessage: string) => {
+      this.hideSpinner(SpinnerType.BallScaleMultiple);
+      this.alertify.message(errorMessage, { position: MessagePosition.TopRight, messageType: MessageType.Error });
     });
   }
 }
