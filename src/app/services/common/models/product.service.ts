@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClientService } from '../http-client.service';
 import { Create_Product } from '../../../models/create_product';
 import { HttpErrorResponse } from '@angular/common/http';
+import { List_Product } from 'src/app/models/list_product';
+import { catchError, firstValueFrom, Observable, tap, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -23,5 +25,21 @@ export class ProductService {
       });
       errorCallBack?.(message);
     });
+  }
+
+  async getAllProducts(successCallBack?: () => void, errorCallBack?: (errorMessage: string) => void): Promise<List_Product[]> {
+
+    try {
+      const result = await firstValueFrom(this.HttpClientService.get<List_Product[]>('products'));
+      successCallBack?.();
+
+      return result;
+
+    } catch (err) {
+      const httpErr = err as HttpErrorResponse;
+      errorCallBack?.(httpErr.message);
+
+      throw err;
+    }
   }
 }
